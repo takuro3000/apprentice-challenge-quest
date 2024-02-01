@@ -7,8 +7,12 @@ read user_name
 echo -n "パスワードを入力してください： "
 read password
 if [ -n "$service_name" ] && [ -n "$user_name" ] && [ -n "$password" ];then
+	gpg -o password_save_file -d password_save_file.gpg
 	echo "$service_name:$user_name:$password" >> password_save_file
+	rm password_save_file.gpg
 	echo "パスワードの追加は成功しました。"
+	gpg -c password_save_file
+	rm password_save_file
 	./password_select_display.sh
 else
 	echo "入力に空欄があります"
