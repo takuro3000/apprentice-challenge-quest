@@ -6,8 +6,11 @@ echo -n "ユーザー名を入力してください： "
 read user_name
 echo -n "パスワードを入力してください： "
 read password
-echo "$service_name:$user_name:$password" >> password_save_file
 if [ -n "$service_name" ] && [ -n "$user_name" ] && [ -n "$password" ];then
-	echo "パスワードの追加は成功しました。"	
+	echo "$service_name:$user_name:$password" >> password_save_file
+	echo "パスワードの追加は成功しました。"
+	./password_select_display.sh
+else
+	echo "入力に空欄があります"
+	./password_save.sh	
 fi
-./password_select_display.sh
