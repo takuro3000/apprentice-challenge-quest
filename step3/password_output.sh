@@ -1,3 +1,4 @@
+#!/bin/bash
 read -p "サービスを入力してください:" service_name
 gpg -o password_save_file -d password_save_file.gpg
 rm password_save_file.gpg
