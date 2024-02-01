@@ -1,3 +1,4 @@
+#!/bin/bash
 read -p "サービスを入力してください:" service_name
 output_service_name=$(grep $service_name password_save_file | cut -d":" -f1)
 output_user_name=$(grep $service_name password_save_file | cut -d":" -f2)
